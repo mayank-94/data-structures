@@ -14,8 +14,8 @@ public class MinimumWindowSubstring {
 
 	public static void main(String[] args) {
 		
-		String t = "t";  //ABC
-		String s = "aaat"; //ADOBECODEBANC
+		String t = "toc";  //ABC
+		String s = "timetopractice"; //ADOBECODEBANC
 		String res = "";
 		
 		Map<Character, Integer> window = new HashMap<>();
@@ -55,30 +55,6 @@ public class MinimumWindowSubstring {
 		
 		res = s.substring(arr[1], arr[2]+1);
 		System.out.println(res);
-		
-//        int[] letterCount = new int[128];
-//        int left = 0, count = 0, minLen = Integer.MAX_VALUE;
-//        for(char c : t.toCharArray())
-//            ++letterCount[c];
-//        
-//        for(int right=0; right<s.length(); right++) {
-//        	if(--letterCount[s.charAt(right)] >=0 ) 
-//        		count++;
-//        	
-//        	while(count == t.length()) {
-//        		if(minLen > right - left + 1) {
-//        			minLen = right - left + 1;
-//        			res = s.substring(left, right + 1);
-//        		}
-//        		
-//        		if(++letterCount[s.charAt(left)] > 0)
-//        			count--;
-//        		
-//        		left++;
-//        	}
-//        }
-//        
-//        System.out.println(res);
-//        
+		    
 	}
 }
