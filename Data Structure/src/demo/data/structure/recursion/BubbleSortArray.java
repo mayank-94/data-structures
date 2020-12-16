@@ -27,7 +27,7 @@ class BubbleSort{
 	
 }
 
-public class SortArray {
+public class BubbleSortArray {
 
 	public static void main(String[] args) {
 		
