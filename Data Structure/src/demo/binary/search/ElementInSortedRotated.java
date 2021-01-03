@@ -4,7 +4,7 @@ public class ElementInSortedRotated {
 
 	public static void main(String[] args) {
 		
-		int arr[] = {11, 12, 15, 18, 19, 2, 5, 6, 8};
+		int arr[] = {11, 12, 15, 18, 2, 5, 6};
 		int N = arr.length;
 		int minEleIndex = findMinIndex(arr, N);
 		System.out.println("Index of Minimum element is "+minEleIndex);
@@ -43,18 +43,21 @@ public class ElementInSortedRotated {
 		int low = 0;
 		int high = N - 1;
 		
+		if(arr[low] < arr[high])
+			return low;
+		
 		while(low <= high) {
 			int mid = low + (high - low) / 2;
-			int next = (mid + 1) % N;
-			int prev = (mid - 1 + N) % N;
 			
-			if(arr[mid] <= arr[prev] && arr[mid] <= arr[next])
+			if(arr[mid] > arr[mid + 1])
+				return mid + 1;
+			if(arr[mid] < arr[mid - 1])
 				return mid;
 			
-			if(arr[low] < arr[mid]) // left side is sorted
-				low = mid;
-			else if(arr[mid] < arr[high]) // right side is sorted
-				high = mid;
+			if(arr[mid] > arr[low])
+				low = mid + 1;
+			else
+				high = mid - 1;
 		}
 		return -1;
 	}
