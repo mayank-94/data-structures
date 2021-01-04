@@ -14,7 +14,7 @@ public class NextGreaterElement {
 
 	public static void main(String[] args) {
 		
-		int arr[] = {1, 3, 2, 4};
+		int arr[] = {2, 1, 5, 7, 3};
 		int n = arr.length;
 		
 		int result[] = getNextGreaterElements(arr, n);
