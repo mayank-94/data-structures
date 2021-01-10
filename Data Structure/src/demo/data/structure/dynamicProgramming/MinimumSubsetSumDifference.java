@@ -46,7 +46,7 @@ public class MinimumSubsetSumDifference {
 		}
 		
 		List<Integer> list = new ArrayList<>();
-		for(int i=0; i<sum+1; i++)
+		for(int i=0; i<(sum+1)/2; i++)
 			if(t[n][i] == true)
 				list.add(i);
 		
