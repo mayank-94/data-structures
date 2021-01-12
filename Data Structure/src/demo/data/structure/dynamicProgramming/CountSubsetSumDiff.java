@@ -6,7 +6,7 @@ package demo.data.structure.dynamicProgramming;
  * @author Mayank
  *
  */
-@SuppressWarnings("unused")
+//@SuppressWarnings("unused")
 public class CountSubsetSumDiff {
 
 	public static void main(String[] args) {
