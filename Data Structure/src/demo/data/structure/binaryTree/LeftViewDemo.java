@@ -36,6 +36,20 @@ class LeftView{
         root.right.left.right = new Node(7); 
 	}
 	
+	static int maxLevel = 0;
+	void leftView(Node node, int level) {
+		if(node == null)
+			return;
+		
+		if(maxLevel < level) {
+			System.out.print(node.data+" ");
+			maxLevel = level;
+		}
+		
+		leftView(node.left, level + 1);
+		leftView(node.right, level + 1);
+	}
+	
 	ArrayList<Integer> getLeaves(Node node){
 		ArrayList<Integer> leaves = new ArrayList<>();
 		Queue<Node> queue = new LinkedList<>();
@@ -68,5 +82,6 @@ public class LeftViewDemo {
 		view.createTree();
 		ArrayList<Integer> leftView = view.getLeaves(view.root);
 		System.out.println(leftView);
+		view.leftView(view.root, 1);
 	}
 }

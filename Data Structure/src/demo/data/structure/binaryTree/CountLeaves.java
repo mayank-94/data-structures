@@ -52,6 +52,16 @@ class Leaves{
         }
         return counter;
     }
+	
+	int countLeavesRecursive(Node node) {
+		if(node == null)
+			return 0;
+		
+		if(node.left == null && node.right == null)
+			return 1;
+		
+		return countLeavesRecursive(node.left) + countLeavesRecursive(node.right);
+	}
 }
 
 public class CountLeaves {
@@ -62,7 +72,7 @@ public class CountLeaves {
 		leaves.createTree();
 		int count = leaves.countLeaves(leaves.root);
 		System.out.println(count);
-		
+		System.out.println(leaves.countLeavesRecursive(leaves.root));
 	}
 
 }
