@@ -44,6 +44,19 @@ class DetectLoop{
 		return false;
 	}
 	
+	boolean isLoopInConstantSpace(LinkNode head) {
+		LinkNode slow = head, fast = head;
+		
+		while(slow != null && fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			
+			if(slow == fast)
+				return true;
+		}
+		return false;
+	}
+	
 	void removeLoop(LinkNode head) {
 		LinkNode prev = null;
 		LinkNode node = head;
@@ -79,7 +92,7 @@ public class DetectLoopCheck {
 		node.next.next.next.next.next = node.next.next;
 		
 		DetectLoop loop = new DetectLoop();
-		boolean isLoop = loop.isLoop(node);
+		boolean isLoop =  loop.isLoopInConstantSpace(node);  //loop.isLoop(node);
 		System.out.println(isLoop);
 		loop.removeLoop(node);
 	}
