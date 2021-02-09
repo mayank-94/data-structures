@@ -4,6 +4,7 @@
 package demo.data.structure.binaryTree;
 
 import java.util.Stack;
+import java.util.ArrayList;
 
 /**
  * @author Mayank
@@ -34,18 +35,22 @@ class BinaryTree{
 		root.right.left = new Node(6);
 	}
 	
-	void inOrder(Node node) {
+	ArrayList<Integer> inOrder(Node node, ArrayList<Integer> list) {		
 		if(node == null)
-			return;
+			return list;
 		
-		inOrder(node.left);
-		System.out.print(node.data+" ");
-		inOrder(node.right);
+		inOrder(node.left, list);
+		list.add(node.data);
+		inOrder(node.right, list);
+		
+		return list;
 	}
 
 	public void inOrder() {
 		System.out.print("InOrder - ");
-		inOrder(root);		
+		ArrayList<Integer> list = new ArrayList<>();
+		inOrder(root, list);
+		System.out.println(list);
 	}
 	
 	public void inOrderWithoutRecursion() {
@@ -113,14 +118,14 @@ public class BinaryTreeTraversal {
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		tree.createTree();
-		tree.inOrder();
-		System.out.println();
-		tree.preOrder();
-		System.out.println();
-		tree.postOrder();
-		System.out.println();
-		tree.inOrderWithoutRecursion();
-		System.out.println();
+//		tree.inOrder();
+//		System.out.println();
+//		tree.preOrder();
+//		System.out.println();
+//		tree.postOrder();
+//		System.out.println();
+//		tree.inOrderWithoutRecursion();
+//		System.out.println();
 		tree.preOrderWithoutRecursion();
 	}
 
